@@ -7,6 +7,7 @@ import { MaterialModule } from '../../themes/material.module';
 import { LayoutComponent } from './layout.component';
 import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { CollapseModule } from '../../core/collapse/collapse.module';
 
 @NgModule({
   declarations: [LayoutComponent, HeaderComponent, SidebarComponent],
@@ -14,7 +15,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     CommonModule,
     LayoutRoutingModule,
     BootstrapModule,
-    MaterialModule
+    MaterialModule,
+    CollapseModule
   ],
   exports: [HeaderComponent]
 })

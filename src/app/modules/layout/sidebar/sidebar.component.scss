@@ -1,4 +1,9 @@
 $topnav-background-color: #042954;
+$sidenav-icon-color: #f8c504;
+$sidenav-border-color: #203f62;
+$nav-item-color: #999;
+$nav-item-hover-active: #fff;
+
 .sidebar {
     border-radius: 0;
     position: fixed;
@@ -25,29 +30,32 @@ $topnav-background-color: #042954;
     .list-group {
         a.list-group-item {
             background: $topnav-background-color;
-            border-color: #203f62;
+            border-color: $sidenav-border-color;
             border-radius: 0;
-            color: #999;
+            color: $nav-item-color;
             text-decoration: none;
-            .fas {
-                margin-right: 10px;
-                color: #f8c504;
+            cursor: pointer;
+            i.fas {
+                color: $sidenav-icon-color;
+            }
+            span {
+                margin-left: 10px;
             }
             .material-icons {
                 top: 2px;
                 position: relative;
                 margin-right: 10px;
-                color: #f8c504;
+                color: $sidenav-icon-color;
                 font-size: 16px;
             }
         }
         a:hover {
             background: darken($topnav-background-color, 5%);
-            color: #fff;
+            color: $nav-item-hover-active;
         }
         a.router-link-active {
             background: darken($topnav-background-color, 5%);
-            color: #fff;
+            color: $nav-item-hover-active;
         }
         .header-fields {
             padding-top: 10px;
@@ -56,86 +64,32 @@ $topnav-background-color: #042954;
                 border-top: 1px solid rgba(255, 255, 255, 0.2);
             }
         }
-    }
-    .sidebar-dropdown {
-        *:focus {
-            border-radius: none;
-            border: none;
-        }
-        .panel-title {
-            font-size: 1rem;
-            height: 50px;
-            margin-bottom: 0;
-            a {
-                color: #999;
-                text-decoration: none;
-                font-weight: 400;
-                background: $topnav-background-color;
-                span {
-                    position: relative;
-                    display: block;
-                    padding: 0.75rem 1.5rem;
-                    padding-top: 1rem;
-                }
-            }
-            a:hover,
-            a:focus {
-                color: #fff;
-                outline: none;
-                outline-offset: -2px;
-            }
-        }
-        .panel-title:hover {
+        .collapse-menu {
             background: darken($topnav-background-color, 5%);
-        }
-        .panel-collapse {
-            border: none;
-            .panel-body {
-                .list-group-item {
-                    border-radius: 0;
-                    background-color: $topnav-background-color;
-                    border: 0 solid transparent;
-                    a {
-                        color: #999;
-                    }
-                    a:hover {
-                        color: #fff;
-                    }
+            padding-left: 40px;
+            a.list-group-item {
+                border: none;
+                padding: 10px;
+                background: darken($topnav-background-color, 5%);
+                font-size: 14px;
+                span {
+                    margin-left: 5px;
                 }
-                .list-group-item:hover {
-                    background: darken($topnav-background-color, 5%);
-                }
+            } 
+            a.router-link-active {
+                background: none;
+                color: $sidenav-icon-color;
+            } 
+            a:hover {
+                background: none;
+                color: #fff;
             }
         }
     }
 }
 
-.nested-menu {
-    .list-group-item {
-        cursor: pointer;
-    }
-    .nested {
-        list-style-type: none;
-    }
-    ul.submenu {
-        display: none;
-        height: 0;
-    }
-    & .expand {
-        ul.submenu {
-            display: block;
-            list-style-type: none;
-            height: auto;
-            li {
-                a {
-                    color: #fff;
-                    padding: 10px;
-                    display: block;
-                }
-            }
-        }
-    }
-}
+
+    
 @media screen and (max-width: 992px) {
     .sidebar {
         top: 54px;
