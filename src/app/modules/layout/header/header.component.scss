@@ -37,8 +37,7 @@ $topnav-background-color: #042954;
     }
 }
 
-.material-icons {
-    top: 5px;
-    position: relative;
-    padding-right: 10px;
+.navbar-toggler:focus, .navbar-toggler:hover {
+    text-decoration: none;
+    outline: none;
 }

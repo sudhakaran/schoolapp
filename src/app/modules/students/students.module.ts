@@ -6,12 +6,14 @@ import { StudentsComponent } from './students.component';
 import { AllStudentsComponent } from './all-students/all-students.component';
 import { AddStudentComponent } from './add-student/add-student.component';
 import { PromotionComponent } from './promotion/promotion.component';
+import { MaterialModule } from 'src/app/themes/material.module';
 
 @NgModule({
   declarations: [StudentsComponent, AllStudentsComponent, AddStudentComponent, PromotionComponent],
   imports: [
     CommonModule,
-    StudentsRoutingModule
+    StudentsRoutingModule,
+    MaterialModule
   ]
 })
 export class StudentsModule { }
