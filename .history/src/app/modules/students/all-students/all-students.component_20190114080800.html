@@ -1,0 +1,65 @@
+<mat-card>
+    <mat-card-header>
+        <div mat-card-avatar><i class="fas fa-fw fa-user-graduate"></i></div>
+        <mat-card-title class="col-6">
+            All Students
+        </mat-card-title>
+        <mat-card-title class="col-6">
+                All Students
+            </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+
+        <p-table #dt [columns]="cols" [value]="students" [paginator]="true" [rows]="13" sortMode="multiple">
+            <ng-template pTemplate="caption">
+                <div style="text-align: right">
+                    <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+                    <input type="text" pInputText size="50" placeholder="Search Students" (input)="dt.filterGlobal($event.target.value, 'contains')"
+                        style="width:auto">
+                </div>
+            </ng-template>
+            <ng-template pTemplate="header" let-columns>
+                <tr>
+                    <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                        {{col.header}}
+                        <p-sortIcon [field]="col.field"></p-sortIcon>
+                    </th>
+                    <th style="width:65px;">Action</th>
+                </tr>
+                <tr>
+                    <th *ngFor="let col of columns" [ngSwitch]="col.field">
+                        <input *ngSwitchCase="'studentId'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                        <input *ngSwitchCase="'studentName'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                        <div *ngSwitchCase="'age'">
+                            Age > {{ageFilter}}
+                            <i class="fa fa-close" (click)="ageFilter=null;dt.filter(null, col.field, col.filterMatchMode)"
+                                style="cursor:pointer" *ngIf="ageFilter"></i>
+                            <p-slider [style]="{'width':'100%','margin-top':'8px'}" [(ngModel)]="ageFilter" [min]="15"
+                                [max]="25" (onChange)="onAgeChange($event, dt)"></p-slider>
+                        </div>
+                        <p-dropdown *ngSwitchCase="'dateOfBirth'" [options]="dob" [style]="{'width':'100%'}" (onChange)="dt.filter($event.value, col.field, 'equals')"></p-dropdown>
+                        <input *ngSwitchCase="'fatherName'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                        <input *ngSwitchCase="'fathersMobile'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                        <input *ngSwitchCase="'regNo'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                        <input *ngSwitchCase="'aadharNumber'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                        <p-multiSelect *ngSwitchCase="'admissionDate'" [options]="doa" defaultLabel="All Dates"
+                            (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
+                    </th>
+                    <th></th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-columns="columns">
+                <tr [pSelectableRow]="rowData">
+                    <td *ngFor="let col of columns">
+                        {{rowData[col.field]}}
+                    </td>
+                    <td class="text-center">
+                        <i class="material-icons btn m-0 p-0" (click)="editStudent(rowData);">edit</i>
+                        <i class="material-icons btn m-0 p-0" (click)="deleteStudent(rowData);">delete</i>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+        <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+    </mat-card-content>
+</mat-card>

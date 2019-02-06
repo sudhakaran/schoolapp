@@ -1,0 +1,282 @@
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar><i class="fas fa-fw fa-user-graduate"></i></div>
+    <mat-card-title>
+      Add Student
+    </mat-card-title>
+  </mat-card-header>
+
+  <!-- <mat-card-content>
+    <div class="row mb-4">
+      <div class="col col-sm-1 col-md-3">
+        <mat-form-field>
+          <input matInput placeholder="First Name">
+        </mat-form-field>
+      </div>
+      <div class="col col-sm-1 col-md-3">
+        <mat-form-field>
+          <input matInput placeholder="Last Name">
+        </mat-form-field>
+      </div>
+      <div class="col col-sm-1 col-md-3">
+        <mat-form-field>
+          <mat-select placeholder="Class">
+            <mat-option value="option">Option</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col col-sm-1 col-md-3">
+        <mat-form-field>
+          <mat-select placeholder="Section">
+            <mat-option value="option">Option</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col col-sm-1 col-md-3">
+        <mat-form-field>
+          <mat-select placeholder="Gender">
+            <mat-option value="option">Option</mat-option>
+            <mat-option value="male">Male</mat-option>
+            <mat-option value="female">Female</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col col-sm-1 col-md-3">
+        <mat-form-field>
+          <input matInput [matDatepicker]="picker" placeholder="Date Of Birth">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div class="col col-sm-1 col-md-3">
+        <mat-form-field>
+          <input matInput placeholder="Roll" required>
+        </mat-form-field>
+      </div>
+      <div class="col col-sm-1 col-md-3">
+        <mat-form-field>
+          <input matInput placeholder="Admission No" required>
+        </mat-form-field>
+      </div>
+      <div class="col col-sm-1 col-md-3">
+        <mat-form-field>
+          <input matInput placeholder="Religion" required>
+        </mat-form-field>
+      </div>
+      <div class="col col-sm-1 col-md-3">
+        <mat-form-field>
+          <input matInput placeholder="Email" required>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row mb-4">
+      <div class="col col-sm-1 col-md-3">
+        <mat-form-field>
+          <input matInput placeholder="Father Name" required>
+        </mat-form-field>
+      </div>
+      <div class="col col-sm-1 col-md-3">
+        <mat-form-field>
+          <input matInput placeholder="Mother Name" required>
+        </mat-form-field>
+      </div>
+      <div class="col col-sm-1 col-md-3">
+        <mat-form-field>
+          <input matInput placeholder="Father Occupation" required>
+        </mat-form-field>
+      </div>
+      <div class="col col-sm-1 col-md-3">
+        <mat-form-field>
+          <input matInput placeholder="Mother Occupation" required>
+        </mat-form-field>
+      </div>
+      <div class="col col-sm-1 col-md-3">
+        <mat-form-field>
+          <input matInput placeholder="Phone Number" required>
+        </mat-form-field>
+      </div>
+      <div class="col col-sm-1 col-md-3">
+        <mat-form-field>
+          <input matInput placeholder="Nationality" required>
+        </mat-form-field>
+      </div>
+      <div class="col col-sm-1 col-md-3">
+        <mat-form-field>
+          <input matInput placeholder="Present Address" required>
+        </mat-form-field>
+      </div>
+      <div class="col col-sm-1 col-md-3">
+        <mat-form-field>
+          <input matInput placeholder="Permanent Address" required>
+        </mat-form-field>
+      </div>
+    </div>
+  </mat-card-content> -->
+
+  <mat-card-content [formGroup]="addStudentForm">
+    <div class="row mb-2">
+      <div class="col col-sm-1 col-md-4">
+        <mat-form-field>
+          <mat-select placeholder="Acedamic Year">
+            <mat-option>None</mat-option>
+            <mat-option *ngFor="let ac_year of acedamic_year" [value]="ac_year.value">
+              {{ac_year.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col col-sm-1 col-md-4">
+        <mat-form-field>
+          <mat-select placeholder="Institute">
+            <mat-option>None</mat-option>
+            <mat-option *ngFor="let inst of institute" [value]="inst.value">
+              {{inst.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row mb-2">
+      <div class="col col-sm-1 col-md-2">
+        <mat-form-field>
+          <input matInput type="text" placeholder="Student Name">
+        </mat-form-field>
+      </div>
+      <div class="col col-sm-1 col-md-2">
+        <mat-form-field>
+          <input matInput type="text" placeholder="Registration Number">
+        </mat-form-field>
+      </div>
+      <div class="col col-sm-1 col-md-2">
+        <mat-form-field>
+          <input matInput type="text" placeholder="Exam Number">
+        </mat-form-field>
+      </div>
+      <div class="col col-sm-1 col-md-2">
+        <mat-form-field>
+          <input matInput type="text" placeholder="Attendance ID">
+        </mat-form-field>
+      </div>
+      <div class="col col-sm-1 col-md-2">
+        <mat-form-field>
+          <input matInput type="text" placeholder="RF Id">
+        </mat-form-field>
+      </div>
+      <div class="col col-sm-1 col-md-2">
+        <mat-form-field>
+          <input matInput type="text" placeholder="EMIS No">
+        </mat-form-field>
+      </div>
+      <div class="col col-sm-1 col-md-2">
+        <mat-form-field>
+          <input matInput [matDatepicker]="admissionDate" placeholder="Admission Date">
+          <mat-datepicker-toggle matSuffix [for]="admissionDate"></mat-datepicker-toggle>
+          <mat-datepicker #admissionDate></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div class="col col-sm-1 col-md-2">
+        <mat-form-field>
+          <mat-select placeholder="Admitted Into Standard">
+            <mat-option>None</mat-option>
+            <mat-option *ngFor="let standard of admitted_into_standard" [value]="standard.value">
+              {{standard.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col col-sm-1 col-md-2">
+        <mat-form-field>
+          <mat-select placeholder="Section">
+            <mat-option>None</mat-option>
+            <mat-option *ngFor="let sec of admitted_into_section" [value]="sec.value">
+              {{sec.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col col-sm-1 col-md-2">
+        <mat-form-field>
+          <input matInput type="text" placeholder="Aadhar Number">
+        </mat-form-field>
+      </div>
+      <div class="col col-sm-1 col-md-2">
+        <mat-form-field>
+          <input matInput [matDatepicker]="dateOfBirth" placeholder="Date Of Birth" (dateChange)="calcAge($event)">
+          <mat-datepicker-toggle matSuffix [for]="dateOfBirth"></mat-datepicker-toggle>
+          <mat-datepicker #dateOfBirth startView="year"></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div class="col col-sm-1 col-md-2">
+        <mat-form-field>
+          <ngx-mat-file-input formControlName="birthCertificate" placeholder="Birth Certificate"></ngx-mat-file-input>
+          <mat-icon matSuffix>folder</mat-icon>
+        </mat-form-field>
+      </div>
+      <div class="col col-sm-1 col-md-2">
+        <mat-form-field>
+          <input matInput type="number" placeholder="Age">
+        </mat-form-field>
+      </div>
+      <div class="col col-sm-1 col-md-2">
+        <mat-form-field>
+          <input matInput type="text" placeholder="Blood Group">
+        </mat-form-field>
+      </div>
+      <div class="col col-sm-1 col-md-2">
+        <mat-form-field>
+          <mat-select placeholder="Gender">
+            <mat-option>None</mat-option>
+            <mat-option value="male">Male</mat-option>
+            <mat-option value="female">Female</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col col-sm-1 col-md-2">
+        <mat-form-field>
+          <ngx-mat-file-input formControlName="studentPhoto" placeholder="Student Photo"></ngx-mat-file-input>
+          <mat-icon matSuffix>folder</mat-icon>
+        </mat-form-field>
+      </div>
+      <div class="col col-sm-1 col-md-2">
+        <mat-form-field>
+          <input matInput type="text" placeholder="Residental Status">
+        </mat-form-field>
+      </div>
+      <div class="col sm-1 col-md-2">
+          <mat-form-field>
+            <input matInput type="text" placeholder="Caste">
+          </mat-form-field>
+      </div>
+      <div class="col sm-1 col-md-2">
+          <mat-form-field>
+            <input matInput type="text" placeholder="Nationality">
+          </mat-form-field>
+      </div>
+      <div class="col sm-1 col-md-2">
+          <mat-form-field>
+            <input matInput type="text" placeholder="Community">
+          </mat-form-field>
+      </div>
+      <div class="col sm-1 col-md-2">
+          <mat-form-field>
+            <input matInput type="text" placeholder="Religion">
+          </mat-form-field>
+      </div>
+      <div class="col sm-1 col-md-2">
+          <mat-form-field>
+              <ngx-mat-file-input formControlName="communityCertificate" placeholder="Community certificate"></ngx-mat-file-input>
+          </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row mb-2">
+      <div class="col sm-1 col-md-2">
+        <mat-form-field>
+          <input matInput type="text" placeholder="Residental Status">
+        </mat-form-field>
+      </div>
+    </div>
+  </mat-card-content>
+
+</mat-card>

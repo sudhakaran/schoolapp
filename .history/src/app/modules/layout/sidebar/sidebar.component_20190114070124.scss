@@ -1,0 +1,176 @@
+$topnav-background-color: #042954;
+$sidenav-icon-color: #f8c504;
+$sidenav-border-color: #203f62;
+$nav-item-color: #999;
+$nav-item-hover-active: #fff;
+
+.sidebar {
+    border-radius: 0;
+    position: fixed;
+    // z-index: 5000;
+    top: 58px;
+    left: 235px;
+    width: 235px;
+    margin-left: -235px;
+    margin-bottom: 48px;
+    border: none;
+    border-radius: 0;
+    overflow-y: auto;
+    background-color: $topnav-background-color;
+    bottom: 0;
+    overflow-x: hidden;
+    padding-bottom: 40px;
+    white-space: nowrap;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    // border-top: 1px solid rgba(255,255,255,0.3);
+    .list-group {
+        a.list-group-item {
+            background: $topnav-background-color;
+            border-color: $sidenav-border-color;
+            border-radius: 0;
+            color: $nav-item-color;
+            text-decoration: none;
+            cursor: pointer;
+            -webkit-transition: all 0.2s ease-in-out;
+            -moz-transition: all 0.2s ease-in-out;
+            -ms-transition: all 0.2s ease-in-out;
+            -o-transition: all 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out;
+            i.fas {
+                color: $sidenav-icon-color;
+            }
+            span {
+                margin-left: 10px;
+            }
+            .material-icons {
+                top: 2px;
+                position: relative;
+                margin-right: 10px;
+                color: $sidenav-icon-color;
+                font-size: 16px;
+            }
+            :hover {
+                color: $nav-item-hover-active;
+            }
+        }
+        a:hover {
+           color: $nav-item-hover-active;
+        }
+        a.router-link-active {
+            background: darken($topnav-background-color, 5%);
+            color: $nav-item-hover-active;
+        }
+        .header-fields {
+            padding-top: 10px;
+        
+            > .list-group-item:first-child {
+                border-top: 1px solid rgba(255, 255, 255, 0.2);
+            }
+        }
+        .collapse-menu {
+            background: darken($topnav-background-color, 5%);
+            a.list-group-item {
+                border: none;
+                padding: 10px;
+                background: darken($topnav-background-color, 5%);
+                font-size: 14px;
+                padding-left: 40px;
+                span {
+                    margin-left: 5px;
+                }
+            } 
+            a.router-link-active {
+                background: none;
+                color: $sidenav-icon-color;
+            } 
+            a:hover {
+                background: none;
+                color: #fff;
+            }
+        }
+    }
+}
+
+
+    
+@media screen and (max-width: 992px) {
+    .sidebar {
+        top: 58px;
+        left: 0px;
+        height: 100%;
+    }
+    .toggle-button {
+        display: none;
+    }
+}
+@media print {
+    .sidebar {
+        display: none !important;
+    }
+}
+@media (min-width: 992px) {
+    .header-fields {
+        display: none;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 0px rgba(255, 255, 255, 1);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    box-shadow: inset 0 0 3px rgba(255, 255, 255, 1);
+}
+
+.toggle-button {
+    position: fixed;
+    width: 235px;
+    cursor: pointer;
+    padding: 12px;
+    bottom: 0;
+    color: #999;
+    background: #042954;
+    i {
+        font-size: 23px;
+        position: relative;
+        top: 3px;
+        -webkit-transition: all 0.5s ease-in-out;
+        -moz-transition: all 0.5s ease-in-out;
+        -ms-transition: all 0.5s ease-in-out;
+        -o-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+    }
+    &:hover {
+        background: darken($topnav-background-color, 5%);
+        color: #fff;
+    }
+    border-top: 1px solid #203f62;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+.collapsed {
+    width: 60px;
+    span {
+        display: none;
+    }
+    .toggle-button {
+        i {
+            transform: rotateY(180deg);
+        }
+    }
+}
+

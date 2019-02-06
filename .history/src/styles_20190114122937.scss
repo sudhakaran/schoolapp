@@ -1,0 +1,99 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background: #f0f1f3; }
+
+@media screen and (max-width: 992px) {
+    .push-right {
+        .sidebar {
+            left: 235px !important;
+        }
+    }
+}
+
+.spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%,-50%); /* IE 9 */
+    -webkit-transform: translate(-50%,-50%); /* Safari */
+    transform: translate(-50%,-50%); /* Standard syntax */
+    width: 70px;
+    height: 70px;
+    > div {
+        width: 18px;
+        height: 18px;
+        background-color: #333;
+
+        border-radius: 100%;
+        display: inline-block;
+        -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+        animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+    }
+    .bounce1 {
+        -webkit-animation-delay: -0.32s;
+        animation-delay: -0.32s;
+    }
+
+    .bounce2 {
+        -webkit-animation-delay: -0.16s;
+        animation-delay: -0.16s;
+    }
+}
+
+@-webkit-keyframes sk-bouncedelay {
+    0%, 80%, 100% { -webkit-transform: scale(0) }
+    40% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bouncedelay {
+    0%, 80%, 100% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    } 40% {
+        -webkit-transform: scale(1.0);
+        transform: scale(1.0);
+    }
+}
+
+.fixed-top {
+    z-index: 1000 !important;
+}
+
+.mat-card-avatar i.fas {
+    font-size: 1.6em;
+}
+.mat-card-header-text {
+    margin: 0 !important;
+}
+
+.mat-form-field {
+    width: 100%;
+}
+
+p-table table thead tr th input {
+    width: 100%;
+}
+
+p-table table thead tr th label.ui-dropdown-label, 
+p-table table thead tr th label.ui-multiselect-label {
+    padding-top: 3px !important;
+    padding-bottom: 3px !important;
+    border-radius: 0;
+    margin: 0 !important;
+    font-weight: normal !important;
+}
+p-table table thead tr th .ui-corner-all {
+    border-radius: 0;
+}
+p-table table thead tr th .ui-sortable-column-icon.pi {
+    font-size: 1em;
+}
+
+.cdk-overlay-container .mat-dialog-container {
+    padding: 0 !important;
+}
+
+// html.cdk-global-scrollblock {
+//     overflow: hidden;
+// }

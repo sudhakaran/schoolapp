@@ -1,0 +1,114 @@
+<mat-card class="mb-4">
+  <mat-card-header>
+    <div mat-card-avatar><i class="fas fa-fw fa-user-graduate"></i></div>
+    <div class="row w-100">
+      <mat-card-title class="col-md-6">
+        Promotion
+      </mat-card-title>
+      <!-- <mat-card-title class="col-md-6 text-right float-right">
+        <h5 class="pt-2">2018 - 2019 | Public School Of Excelance</h5>
+      </mat-card-title> -->
+    </div>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="searchStudentPromotion">
+      <div class="row">
+        <div class="col">
+          <mat-form-field>
+            <mat-select formControlName="standard" placeholder="Standard" required>
+              <mat-option>None</mat-option>
+              <mat-option *ngFor="let standard of standardList" [value]="standard.value">
+                {{standard.viewValue}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="searchStudentPromotion.get('standard').invalid">This field is required</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field>
+            <mat-select formControlName="section" placeholder="Section">
+              <mat-option>None</mat-option>
+              <mat-option *ngFor="let sec of sectionList" [value]="sec.value">
+                {{sec.viewValue}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="searchStudentPromotion.get('section').invalid">This field is required</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <button mat-raised-button color="primary" class="mr-2">Search</button>
+        </div>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar><i class="fas fa-fw fa-user-graduate"></i></div>
+    <div class="row w-100">
+      <mat-card-title class="col-md-6">
+        Students List for Promotion
+      </mat-card-title>
+    </div>
+
+  </mat-card-header>
+  <mat-card-content>
+    <p-table [value]="studentsListForPromotion">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>From Standard</th>
+          <th>From Section</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-rowData>
+        <tr>
+          <td pEditableColumn>
+            <p-cellEditor>
+              <ng-template pTemplate="input">
+                <input pInputText type="text" [(ngModel)]="rowData.studentId">
+              </ng-template>
+              <ng-template pTemplate="output">
+                {{rowData.studentId}}
+              </ng-template>
+            </p-cellEditor>
+          </td>
+          <td pEditableColumn>
+            <p-cellEditor>
+              <ng-template pTemplate="input">
+                <input pInputText type="text" [(ngModel)]="rowData.studentName" required>
+              </ng-template>
+              <ng-template pTemplate="output">
+                {{rowData.studentName}}
+              </ng-template>
+            </p-cellEditor>
+          </td>
+          <td pEditableColumn>
+            <p-cellEditor>
+              <ng-template pTemplate="input">
+                <p-dropdown [options]="brands" [(ngModel)]="rowData.fromStandard" [style]="{'width':'100%'}"></p-dropdown>
+              </ng-template>
+              <ng-template pTemplate="output">
+                {{rowData.fromStandard}}
+              </ng-template>
+            </p-cellEditor>
+          </td>
+          <td pEditableColumn>
+            <p-cellEditor>
+              <ng-template pTemplate="input">
+                <input pInputText type="text" [(ngModel)]="rowData.fromSection">
+              </ng-template>
+              <ng-template pTemplate="output">
+                {{rowData.fromSection}}
+              </ng-template>
+            </p-cellEditor>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+
+    <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+  </mat-card-content>
+</mat-card>

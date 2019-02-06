@@ -13,7 +13,8 @@ const routes: Routes = [
       { path: 'teachers', loadChildren: '../teachers/teachers.module#TeachersModule' },
       { path: 'students', loadChildren: '../students/students.module#StudentsModule' },
       { path: 'parents', loadChildren: '../parents/parents.module#ParentsModule' },
-      { path: 'attendance', loadChildren: '../attendance/attendance.module#AttendanceModule' }
+      { path: 'attendance', loadChildren: '../attendance/attendance.module#AttendanceModule' },
+      { path: 'accounts', loadChildren: '../accounts/accounts.module#AccountsModule' }
     ] 
   }
 ];

@@ -1,0 +1,435 @@
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar><i class="fas fa-fw fa-user-graduate"></i></div>
+    <mat-card-title>
+      Add Student
+    </mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content [formGroup]="addStudentForm">
+
+    <div class="row mb-3">
+      <div class="col col-sm-1 col-md-4">
+        <mat-form-field>
+          <mat-select formControlName="acedamicyear" placeholder="Acedamic Year">
+            <mat-option>None</mat-option>
+            <mat-option *ngFor="let ac_year of acedamic_year" [value]="ac_year.value">
+              {{ac_year.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col col-sm-1 col-md-4">
+        <mat-form-field>
+          <mat-select formControlName="institute" placeholder="Institute">
+            <mat-option>None</mat-option>
+            <mat-option *ngFor="let inst of institute" [value]="inst.value">
+              {{inst.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col col-sm-1 col-md-2">
+        <mat-form-field>
+          <input formControlName="studentName" matInput type="text" placeholder="Student Name" required>
+          <mat-error *ngIf="addStudentForm.get('studentName').invalid">This field is required</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col col-sm-1 col-md-2">
+        <mat-form-field>
+          <input formControlName="regNo" matInput type="text" placeholder="Registration Number" required>
+          <mat-error *ngIf="addStudentForm.get('regNo').invalid">This field is required</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col col-sm-1 col-md-2">
+        <mat-form-field>
+          <input formControlName="examNo" matInput type="text" placeholder="Exam Number">
+        </mat-form-field>
+      </div>
+      <div class="col col-sm-1 col-md-2">
+        <mat-form-field>
+          <input formControlName="attendanceId" matInput type="text" placeholder="Attendance ID">
+        </mat-form-field>
+      </div>
+      <div class="col col-sm-1 col-md-2">
+        <mat-form-field>
+          <input formControlName="rfId" matInput type="text" placeholder="RF Id">
+        </mat-form-field>
+      </div>
+      <div class="col col-sm-1 col-md-2">
+        <mat-form-field>
+          <input formControlName="emisNo" matInput type="text" placeholder="EMIS No">
+        </mat-form-field>
+      </div>
+      <div class="col col-sm-1 col-md-2">
+        <mat-form-field>
+          <input formControlName="admissionDate" matInput [matDatepicker]="admissionDate" placeholder="Admission Date" required>
+          <mat-datepicker-toggle matSuffix [for]="admissionDate"></mat-datepicker-toggle>
+          <mat-datepicker #admissionDate></mat-datepicker>
+          <mat-error *ngIf="addStudentForm.get('admissionDate').invalid">This field is required</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col col-sm-1 col-md-2">
+        <mat-form-field>
+          <mat-select formControlName="admittedIntoStandard" placeholder="Admitted Into Standard" required>
+            <mat-option>None</mat-option>
+            <mat-option *ngFor="let standard of admitted_into_standard" [value]="standard.value">
+              {{standard.viewValue}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="addStudentForm.get('admittedIntoStandard').invalid">This field is required</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col col-sm-1 col-md-2">
+        <mat-form-field>
+          <mat-select formControlName="section" placeholder="Section">
+            <mat-option>None</mat-option>
+            <mat-option *ngFor="let sec of admitted_into_section" [value]="sec.value">
+              {{sec.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col col-sm-1 col-md-2">
+        <mat-form-field>
+          <input formControlName="aadharNumber" matInput type="number" placeholder="Aadhar Number">
+        </mat-form-field>
+      </div>
+      <div class="col col-sm-1 col-md-2">
+        <mat-form-field>
+          <input formControlName="dateOfBirth" matInput [matDatepicker]="dateOfBirth" placeholder="Date Of Birth" (dateChange)="calcAge($event)" required>
+          <mat-datepicker-toggle matSuffix [for]="dateOfBirth"></mat-datepicker-toggle>
+          <mat-datepicker #dateOfBirth startView="year" [startAt]="dobstartDate"></mat-datepicker>
+          <mat-error *ngIf="addStudentForm.get('dateOfBirth').invalid">This field is required</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col col-sm-1 col-md-2">
+        <mat-form-field>
+          <ngx-mat-file-input formControlName="birthCertificate" placeholder="Birth Certificate" required></ngx-mat-file-input>
+          <mat-icon matSuffix>folder_open</mat-icon>
+          <mat-error *ngIf="addStudentForm.get('birthCertificate').invalid">This field is required</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col col-sm-1 col-md-2">
+        <mat-form-field>
+          <input matInput formControlName="age" type="number" formControlName="age" placeholder="Age">
+        </mat-form-field>
+      </div>
+      <div class="col col-sm-1 col-md-2">
+        <mat-form-field>
+          <mat-select formControlName="bloodGroup" placeholder="Blood Group">
+            <mat-option>A Positive</mat-option>
+            <mat-option>A Negative</mat-option>
+            <mat-option>A Unknown</mat-option>
+            <mat-option>B Positive</mat-option>
+            <mat-option>B Negative</mat-option>
+            <mat-option>B Unknown</mat-option>
+            <mat-option>AB Positive</mat-option>
+            <mat-option>AB Negative</mat-option>
+            <mat-option>AB Unknown</mat-option>
+            <mat-option>O Positive</mat-option>
+            <mat-option>O Negative</mat-option>
+            <mat-option>O Unknown</mat-option>
+            <mat-option>Unknown</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col col-sm-1 col-md-2">
+        <mat-form-field>
+          <mat-select formControlName="sex" placeholder="Gender" required>
+            <mat-option>None</mat-option>
+            <mat-option value="male">Male</mat-option>
+            <mat-option value="female">Female</mat-option>
+          </mat-select>
+          <mat-error *ngIf="addStudentForm.get('sex').invalid">This field is required</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col col-sm-1 col-md-2">
+        <mat-form-field>
+          <ngx-mat-file-input formControlName="studentPhoto" placeholder="Student Photo"></ngx-mat-file-input>
+          <mat-icon matSuffix>folder_open</mat-icon>
+        </mat-form-field>
+      </div>
+      <div class="col col-sm-1 col-md-2">
+        <mat-form-field>
+          <input matInput formControlName="residentalStatus" type="text" placeholder="Residental Status">
+        </mat-form-field>
+      </div>
+      <div class="col sm-1 col-md-2">
+        <mat-form-field>
+          <input matInput formControlName="caste" type="text" placeholder="Caste">
+        </mat-form-field>
+      </div>
+      <div class="col sm-1 col-md-2">
+        <mat-form-field>
+          <input matInput formControlName="nationality" type="text" placeholder="Nationality">
+        </mat-form-field>
+      </div>
+      <div class="col sm-1 col-md-2">
+        <mat-form-field>
+          <input matInput formControlName="community" type="text" placeholder="Community">
+        </mat-form-field>
+      </div>
+      <div class="col sm-1 col-md-2">
+        <mat-form-field>
+          <input matInput formControlName="religion" type="text" placeholder="Religion">
+        </mat-form-field>
+      </div>
+      <div class="col sm-1 col-md-2">
+        <mat-form-field>
+          <ngx-mat-file-input formControlName="communityCertificate" placeholder="Community certificate"></ngx-mat-file-input>
+          <mat-icon matSuffix>folder_open</mat-icon>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col sm-1 col-md-4">
+        <mat-form-field>
+          <input matInput formControlName="residentialAddressOfFatherGuardian" type="text" placeholder="Residential Address of Father Guardian">
+        </mat-form-field>
+      </div>
+      <div class="col sm-1 col-md-4">
+        <mat-form-field>
+          <input matInput formControlName="place" type="text" placeholder="Place">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col sm-1 col-md-2">
+        <mat-form-field>
+          <input matInput formControlName="nameOfTheMother" type="text" placeholder="Mother Name" required>
+          <mat-error *ngIf="addStudentForm.get('nameOfTheMother').invalid">This field is required</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col sm-1 col-md-2">
+        <mat-form-field>
+          <input matInput formControlName="mothersIncome" type="text" placeholder="Mothers Income">
+        </mat-form-field>
+      </div>
+      <div class="col sm-1 col-md-2">
+        <mat-form-field>
+          <span matPrefix>+91 &nbsp;</span>
+          <input matInput formControlName="mothersMobile" type="tel" placeholder="Mothers Mobile" required>
+          <mat-error *ngIf="addStudentForm.get('mothersMobile').invalid">This field is required</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col sm-1 col-md-2">
+        <mat-form-field>
+          <input matInput formControlName="mothersQualificaiton" type="text" placeholder="Mothers Qualificaiton">
+        </mat-form-field>
+      </div>
+      <div class="col sm-1 col-md-2">
+        <mat-form-field>
+          <ngx-mat-file-input formControlName="motherPhoto" placeholder="Mother Photo"></ngx-mat-file-input>
+          <mat-icon matSuffix>folder_open</mat-icon>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col sm-1 col-md-2">
+        <mat-form-field>
+          <input matInput formControlName="fatherName" type="text" placeholder="Father Name" required>
+          <mat-error *ngIf="addStudentForm.get('fatherName').invalid">This field is required</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col sm-1 col-md-2">
+        <mat-form-field>
+          <input matInput formControlName="fathersIncome" type="text" placeholder="Father Income">
+        </mat-form-field>
+      </div>
+      <div class="col sm-1 col-md-2">
+        <mat-form-field>
+          <span matPrefix>+91 &nbsp;</span>
+          <input matInput formControlName="fathersMobile" type="tel" placeholder="Father Mobile" required>
+          <mat-error *ngIf="addStudentForm.get('fathersMobile').invalid">This field is required</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col sm-1 col-md-2">
+        <mat-form-field>
+          <input matInput formControlName="fathersQualificaiton" type="text" placeholder="Father Qualificaiton">
+        </mat-form-field>
+      </div>
+      <div class="col sm-1 col-md-2">
+        <mat-form-field>
+          <ngx-mat-file-input formControlName="fatherPhoto" placeholder="Father Photo"></ngx-mat-file-input>
+          <mat-icon matSuffix>folder_open</mat-icon>
+        </mat-form-field>
+      </div>
+      <div class="col sm-1 col-md-2">
+        <mat-form-field>
+          <input matInput formControlName="occupationalAddress" type="text" placeholder="Occupational Address">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col sm-1 col-md-2">
+        <mat-form-field>
+          <input matInput formControlName="nameOfTheGuardian" type="text" placeholder="Guardian Name">
+        </mat-form-field>
+      </div>
+      <div class="col sm-1 col-md-2">
+        <mat-form-field>
+          <span matPrefix>+91 &nbsp;</span>
+          <input matInput formControlName="guardianMobile" type="tel" placeholder="Guardian Mobile">
+        </mat-form-field>
+      </div>
+      <div class="col sm-1 col-md-2">
+        <mat-form-field>
+          <ngx-mat-file-input formControlName="guardianPhoto" placeholder="Guardian Photo"></ngx-mat-file-input>
+          <mat-icon matSuffix>folder_open</mat-icon>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col sm-1 col-md-2">
+        <mat-form-field>
+          <input matInput formControlName="motherTongue" type="text" placeholder="Mother Tongue">
+        </mat-form-field>
+      </div>
+      <div class="col sm-1 col-md-2">
+        <mat-form-field>
+          <input matInput formControlName="firstLanguage" type="text" placeholder="First Language">
+        </mat-form-field>
+      </div>
+      <div class="col sm-1 col-md-2">
+        <mat-form-field>
+          <input matInput formControlName="secondLanguage" type="text" placeholder="Second Language">
+        </mat-form-field>
+      </div>
+      <div class="col sm-1 col-md-2">
+        <mat-form-field>
+          <input matInput formControlName="thirdLanguage" type="text" placeholder="Third Language">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col sm-1 col-md-2">
+        <mat-form-field>
+          <input matInput formControlName="siblings1" type="text" placeholder="Siblings 1">
+        </mat-form-field>
+      </div>
+      <div class="col sm-1 col-md-2">
+        <mat-form-field>
+          <input matInput formControlName="siblings2" type="text" placeholder="Siblings 2">
+        </mat-form-field>
+      </div>
+      <div class="col sm-1 col-md-2">
+        <mat-form-field>
+          <input matInput formControlName="identificationMark1" type="text" placeholder="Identification Mark 1">
+        </mat-form-field>
+      </div>
+      <div class="col sm-1 col-md-2">
+        <mat-form-field>
+          <input matInput formControlName="identificationMark2" type="text" placeholder="Identification Mark 2">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col sm-1 col-md-2">
+        <mat-form-field>
+          <input matInput formControlName="userName" type="text" placeholder="User Name" required>
+          <mat-error *ngIf="addStudentForm.get('userName').invalid">This field is required</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col sm-1 col-md-2">
+        <mat-form-field>
+          <input matInput formControlName="password" [type]="passwordHide ? 'password' : 'text'" placeholder="Password" required>
+          <mat-icon matSuffix (click)="passwordHide = !passwordHide">{{passwordHide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          <mat-error *ngIf="addStudentForm.get('password').invalid">This field is required</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col sm-1 col-md-2">
+        <mat-form-field>
+          <span matPrefix>+91 &nbsp;</span>
+          <input matInput formControlName="preferredContactNoForSms" type="tel" placeholder="Preferred No for SMS 1">
+        </mat-form-field>
+      </div>
+      <div class="col sm-1 col-md-2">
+        <mat-form-field>
+          <span matPrefix>+91 &nbsp;</span>
+          <input matInput formControlName="preferredContactNoForSms2" type="tel" placeholder="Preferred No for SMS 2">
+        </mat-form-field>
+      </div>
+      <div class="col sm-1 col-md-2">
+        <mat-form-field>
+          <input matInput formControlName="preferredMailId" type="email" placeholder="Preferred Mail Id">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col sm-1 col-md-2">
+        <mat-form-field>
+          <mat-select formControlName="classLastAttended" placeholder="Class Last Attended">
+            <mat-option>None</mat-option>
+            <mat-option value="1">1</mat-option>
+            <mat-option value="2">2</mat-option>
+            <mat-option value="3">3</mat-option>
+            <mat-option value="4">4</mat-option>
+            <mat-option value="5">5</mat-option>
+            <mat-option value="6">6</mat-option>
+            <mat-option value="7">7</mat-option>
+            <mat-option value="8">8</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col sm-1 col-md-2">
+        <mat-form-field>
+          <ngx-mat-file-input formControlName="whetherMarksStatementIsAttached" placeholder="Marks Statement"></ngx-mat-file-input>
+          <mat-icon matSuffix>folder_open</mat-icon>
+        </mat-form-field>
+      </div>
+      <div class="col sm-1 col-md-2">
+        <mat-form-field>
+          <ngx-mat-file-input formControlName="whetherTransferCertificateIsAttached" placeholder="Transfer Certificate"></ngx-mat-file-input>
+          <mat-icon matSuffix>folder_open</mat-icon>
+        </mat-form-field>
+      </div>
+      <div class="col sm-1 col-md-2">
+        <mat-form-field>
+          <input matInput formControlName="prevoiusSchoolAcademicBoard" type="text" placeholder="Prevoius School Academic Board">
+        </mat-form-field>
+      </div>
+      <div class="col sm-1 col-md-2">
+        <mat-form-field>
+          <input matInput formControlName="prevoiusSchoolAttended" type="text" placeholder="Prevoius School name">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col sm-1 col-md-2">
+        <mat-form-field>
+          <mat-select formControlName="admissionStatus" placeholder="Admission Status">
+            <mat-option>None</mat-option>
+            <mat-option value="Joined">Joined</mat-option>
+            <mat-option value="Rejected">Rejected</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col col-md-1">
+        <button mat-raised-button [disabled]="addStudentForm.invalid" color="primary" (click)="addStudent()">Submit</button>
+      </div>
+    </div>
+
+  </mat-card-content>
+
+  <!-- <Br />
+  <br />
+
+  <pre>{{addStudentForm.value | json}}</pre> -->
+
+</mat-card>

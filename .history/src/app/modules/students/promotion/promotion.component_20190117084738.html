@@ -1,0 +1,137 @@
+<mat-card class="mb-4">
+  <mat-card-header>
+    <div mat-card-avatar><i class="fas fa-fw fa-user-graduate"></i></div>
+    <div class="row w-100">
+      <mat-card-title class="col-md-6">
+        Promotion
+      </mat-card-title>
+      <!-- <mat-card-title class="col-md-6 text-right float-right">
+        <h5 class="pt-2">2018 - 2019 | Public School Of Excelance</h5>
+      </mat-card-title> -->
+    </div>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="searchStudentPromotionForm">
+      <div class="row">
+        <div class="col">
+          <mat-form-field>
+            <mat-select formControlName="fromStandard" placeholder="Standard" required>
+              <mat-option>None</mat-option>
+              <mat-option *ngFor="let standard of fromStandardList" [value]="standard.value">
+                {{standard.viewValue}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="searchStudentPromotionForm.get('fromStandard').invalid">This field is required</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field>
+            <mat-select formControlName="fromSection" placeholder="Section">
+              <mat-option>None</mat-option>
+              <mat-option *ngFor="let sec of fromSectionList" [value]="sec.value">
+                {{sec.viewValue}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="searchStudentPromotionForm.get('fromSection').invalid">This field is required</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <button mat-raised-button color="primary" class="mr-2" (click)="getStudentsPromotionList(searchStudentPromotionForm.value);">Search</button>
+        </div>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar><i class="fas fa-fw fa-user-graduate"></i></div>
+    <div class="row w-100">
+      <mat-card-title class="col-md-6">
+        Students List for Promotion
+      </mat-card-title>
+    </div>
+
+  </mat-card-header>
+  <mat-card-content>
+    <p-table [value]="studentsListForPromotion">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>From Standard</th>
+          <th>From Section</th>
+          <th>To Standard</th>
+          <th>To Section</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-rowData>
+        <tr>
+          <td>
+            {{rowData.studentId}}
+          </td>
+          <td>
+            {{rowData.studentName}}
+          </td>
+          <td pEditableColumn>
+            <p-cellEditor>
+              <ng-template pTemplate="input">
+                <p-dropdown [options]="fromStandardListEdit" [(ngModel)]="rowData.fromStandard" [style]="{'width':'100%'}"></p-dropdown>
+              </ng-template>
+              <ng-template pTemplate="output">
+                {{rowData.fromStandard}}
+              </ng-template>
+            </p-cellEditor>
+          </td>
+          <td pEditableColumn>
+            <p-cellEditor>
+              <ng-template pTemplate="input">
+                <p-dropdown [options]="fromStandardListEdit" [(ngModel)]="rowData.fromSection" [style]="{'width':'100%'}"></p-dropdown>
+              </ng-template>
+              <ng-template pTemplate="output">
+                {{rowData.fromSection}}
+              </ng-template>
+            </p-cellEditor>
+          </td>
+          <td pEditableColumn>
+            <p-cellEditor>
+              <ng-template pTemplate="input">
+                <p-dropdown [options]="toStandardList" [(ngModel)]="rowData.toStandard" [style]="{'width':'100%'}"></p-dropdown>
+              </ng-template>
+              <ng-template pTemplate="output">
+                {{rowData.toStandard}}
+              </ng-template>
+            </p-cellEditor>
+          </td>
+          <td pEditableColumn>
+              <p-cellEditor>
+                <ng-template pTemplate="input">
+                  <p-dropdown [options]="toSectionList" [(ngModel)]="rowData.toSection" [style]="{'width':'100%'}"></p-dropdown>
+                </ng-template>
+                <ng-template pTemplate="output">
+                  {{rowData.toSection}}
+                </ng-template>
+              </p-cellEditor>
+            </td>
+          <td>
+            {{rowData.studentName}}
+          </td>
+          <td>
+
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+
+    <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+
+    <div class="row">
+      <div class="col">
+          <button mat-raised-button color="primary" (click)="savePromotionsList()" class="mr-2">Add Student</button>
+          <button mat-raised-button color="primary">Cancel</button>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

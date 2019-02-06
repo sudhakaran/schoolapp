@@ -1,0 +1,58 @@
+<app-header></app-header>
+<section class="main-container">
+  <div class="container-fluid d-flex justify-content-center">
+    <router-outlet></router-outlet>
+    <mat-card class="col-4">
+      <div class="login-page">
+        <div class="row justify-content-md-center">
+          <div class="col">
+            <div class="text-center">
+                <img class="img-fluid user-avatar" src="../../../assets/images/logo.jpeg" />
+            </div>
+            <!-- <h1>Login</h1> -->
+            <form [formGroup]="loginForm">
+              <div class="form-content">
+                <div class="form-group">
+                  <mat-form-field>
+                    <input formControlName="username" matInput type="text" placeholder="Username"  required>
+                    <mat-error *ngIf="loginForm.get('username').invalid">This field is required</mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field>
+                    <input formControlName="password" matInput type="password" placeholder="Password"  required>
+                    <mat-error *ngIf="loginForm.get('password').invalid">This field is required</mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field>
+                    <mat-select formControlName="acedamicyear" placeholder="Acedamic Year" required>
+                      <mat-option>None</mat-option>
+                      <mat-option *ngFor="let ac_year of acedamic_year" [value]="ac_year.value">
+                        {{ac_year.viewValue}}
+                      </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="loginForm.get('acedamicyear').invalid">This field is required</mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field>
+                    <mat-select formControlName="institute" placeholder="Institute" required>
+                      <mat-option>None</mat-option>
+                      <mat-option *ngFor="let inst of institute" [value]="inst.value">
+                        {{inst.viewValue}}
+                      </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="loginForm.get('institute').invalid">This field is required</mat-error>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="col text-center">
+                  <button mat-raised-button color="primary" (click)="onLoggedin()" class="mr-2">Log in</button>
+              </div>
+              
+            </form>
+          </div>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</section>
+<app-footer></app-footer>
