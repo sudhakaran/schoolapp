@@ -384,6 +384,11 @@ MIT
 
 @angular/material/datepicker
 
+ngx-material-file-input
+MIT
+
+@angular/material/card
+
 ngx-bootstrap/positioning
 
 ngx-bootstrap/dropdown
@@ -397,8 +402,6 @@ ngx-bootstrap/utils
 @angular/material/core
 
 @angular/material/form-field
-
-@angular/material/card
 
 @angular/core
 MIT
@@ -525,8 +528,5 @@ THE SOFTWARE.
 
 
 @angular/cdk/scrolling
-
-ngx-material-file-input
-MIT
 
 @angular/material/icon
