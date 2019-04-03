@@ -384,8 +384,11 @@ MIT
 
 @angular/material/datepicker
 
-ngx-material-file-input
-MIT
+@angular/material/select
+
+@angular/material/core
+
+@angular/material/form-field
 
 @angular/material/card
 
@@ -397,11 +400,8 @@ ngx-bootstrap/component-loader
 
 ngx-bootstrap/utils
 
-@angular/material/select
-
-@angular/material/core
-
-@angular/material/form-field
+ngx-material-file-input
+MIT
 
 @angular/core
 MIT
