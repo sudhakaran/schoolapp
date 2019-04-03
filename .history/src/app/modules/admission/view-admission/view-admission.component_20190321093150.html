@@ -1,0 +1,272 @@
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar><i class="fas fa-fw fa-user-graduate"></i></div>
+    <div class="row w-100">
+        <mat-card-title class="col-md-6">
+            Student Details
+        </mat-card-title>
+        <!-- <mat-card-title class="col-md-6 text-right float-right">
+                <button mat-raised-button color="primary" (click)="closeModel();">Close</button>
+        </mat-card-title> -->
+    </div>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="row">
+      <div class="col-md-3 col-lg-3 text-center"><i class="fas fa-user-circle" style="font-size:9em; color:gray;"></i></div>
+
+      <div class=" col-md-9 col-lg-9 ">
+        <table class="table table-hover">
+          <!-- <tbody>
+            <tr>
+              <td class="w-50">Student Name</td>
+              <td class="w-50">{{ data.studentName }}</td>
+            </tr>
+            <tr>
+              <td class="w-50">Registration Number</td>
+              <td class="w-50">{{ data.regNo }}</td>
+            </tr>
+            <tr>
+              <td class="w-50">Exam Number</td>
+              <td class="w-50">{{ data.examNo }}</td>
+            </tr>
+            <tr>
+            <tr>
+              <td class="w-50">Attendance ID</td>
+              <td class="w-50">{{ data.attendanceId }}</td>
+            </tr>
+            <tr>
+              <td class="w-50">RF Id</td>
+              <td class="w-50">{{ data.rfId }}</td>
+            </tr>
+            <tr>
+              <td class="w-50">EMIS No</td>
+              <td class="w-50">{{ data.emisNo }}</td>
+            </tr>
+            <tr>
+              <td class="w-50">Admission Date</td>
+              <td class="w-50">{{ data.admissionDate }}</td>
+            </tr>
+            <tr>
+              <td class="w-50">Admitted Into Standard</td>
+              <td class="w-50">{{ data.admittedIntoStandard }}</td>
+            </tr>
+            <tr>
+              <td class="w-50">Section</td>
+              <td class="w-50">{{ data.section }}</td>
+            </tr>
+            <tr>
+              <td class="w-50">Aadhar Number</td>
+              <td class="w-50">{{ data.aadharNumber }}</td>
+            </tr>
+            <tr>
+              <td class="w-50">Date Of Birth</td>
+              <td class="w-50">{{ data.dateOfBirth }}</td>
+            </tr>
+            <tr>
+              <td class="w-50">Age</td>
+              <td class="w-50">{{ data.age }}</td>
+            </tr>
+            <tr>
+              <td class="w-50">Blood Group</td>
+              <td class="w-50">{{ data.bloodGroup }}</td>
+            </tr>
+            <tr>
+              <td class="w-50">Gender</td>
+              <td class="w-50">{{ data.sex }}</td>
+            </tr>
+            <tr>
+              <td class="w-50">Residental Status</td>
+              <td class="w-50">{{ data.residentalStatus }}</td>
+            </tr>
+            <tr>
+              <td class="w-50">Caste</td>
+              <td class="w-50">{{ data.caste }}</td>
+            </tr>
+            <tr>
+              <td class="w-50">Nationality</td>
+              <td class="w-50">{{ data.nationality }}</td>
+            </tr>
+            <tr>
+              <td class="w-50">Community</td>
+              <td class="w-50">{{ data.community }}</td>
+            </tr>
+            <tr>
+              <td class="w-50">Religion</td>
+              <td class="w-50">{{ data.religion }}</td>
+            </tr>
+            <tr>
+              <td class="w-50">Mother Tongue</td>
+              <td class="w-50">{{ data.motherTongue }}</td>
+            </tr>
+            <tr>
+              <td class="w-50">First Language</td>
+              <td class="w-50">{{ data.firstLanguage }}</td>
+            </tr>
+            <tr>
+              <td class="w-50">Second Language</td>
+              <td class="w-50">{{ data.secondLanguage }}</td>
+            </tr>
+            <tr>
+              <td class="w-50">Third Language</td>
+              <td class="w-50">{{ data.thirdLanguage }}</td>
+            </tr>
+            <tr>
+              <td class="w-50">Siblings 1</td>
+              <td class="w-50">{{ data.siblings1 }}</td>
+            </tr>
+            <tr>
+              <td class="w-50">Siblings 2</td>
+              <td class="w-50">{{ data.siblings2 }}</td>
+            </tr>
+            <tr>
+              <td class="w-50">Identification Mark 1</td>
+              <td class="w-50">{{ data.identificationMark1 }}</td>
+            </tr>
+            <tr>
+              <td class="w-50">Identification Mark 2</td>
+              <td class="w-50">{{ data.identificationMark2 }}</td>
+            </tr>
+            <tr>
+              <td class="w-50">User Name</td>
+              <td class="w-50">{{ data.userName }}</td>
+            </tr>
+            <tr>
+              <td class="w-50">Password</td>
+              <td class="w-50">{{ data.password }}</td>
+            </tr>
+            <tr>
+              <td class="w-50">Preferred No for SMS 1</td>
+              <td class="w-50">{{ data.preferredContactNoForSms }}</td>
+            </tr>
+            <tr>
+              <td class="w-50">Preferred No for SMS 2</td>
+              <td class="w-50">{{ data.preferredContactNoForSms2 }}</td>
+            </tr>
+            <tr>
+              <td class="w-50">Preferred Mail Id</td>
+              <td class="w-50">{{ data.preferredMailId }}</td>
+            </tr>
+            <tr>
+              <td class="w-50">Class Last Attended</td>
+              <td class="w-50">{{ data.classLastAttended }}</td>
+            </tr>
+            <tr>
+              <td class="w-50">Prevoius School Academic Board</td>
+              <td class="w-50">{{ data.prevoiusSchoolAcademicBoard }}</td>
+            </tr>
+            <tr>
+              <td class="w-50">Prevoius School name</td>
+              <td class="w-50">{{ data.prevoiusSchoolAttended }}</td>
+            </tr>
+          </tbody> -->
+        </table>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar><i class="fas fa-fw fa-user-friends"></i></div>
+    <mat-card-title>
+      Mother Deatils
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="row">
+      <div class="col-md-3 col-lg-3 text-center"><i class="fas fa-user-circle" style="font-size:9em; color:gray;"></i></div>
+
+      <div class=" col-md-9 col-lg-9 ">
+        <table class="table">
+          <tbody>
+            <tr>
+              <td class="w-50">Mother Name</td>
+              <td class="w-50">{{ data.nameOfTheMother }}</td>
+            </tr>
+            <tr>
+              <td class="w-50">Mothers Income</td>
+              <td class="w-50">{{ data.mothersIncome }}</td>
+            </tr>
+            <tr>
+              <td class="w-50">Mothers Mobile</td>
+              <td class="w-50">{{ data.mothersMobile }}</td>
+            </tr>
+            <tr>
+              <td class="w-50">Mothers Qualificaiton</td>
+              <td class="w-50">{{ data.mothersQualificaiton }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar><i class="fas fa-fw fa-user-friends"></i></div>
+    <mat-card-title>
+      Father Deatils
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="row">
+      <div class="col-md-3 col-lg-3 text-center"><i class="fas fa-user-circle" style="font-size:9em; color:gray;"></i></div>
+      <div class=" col-md-9 col-lg-9 ">
+        <table class="table">
+          <!-- <tbody>
+            <tr>
+              <td class="w-50">Father Name</td>
+              <td class="w-50">{{ data.fatherName }}</td>
+            </tr>
+            <tr>
+              <td class="w-50">Father Income</td>
+              <td class="w-50">{{ data.fathersIncome }}</td>
+            </tr>
+            <tr>
+              <td class="w-50">Father Mobile</td>
+              <td class="w-50">{{ data.fathersMobile }}</td>
+            </tr>
+            <tr>
+              <td class="w-50">Father Qualificaiton</td>
+              <td class="w-50">{{ data.fathersQualificaiton }}</td>
+            </tr>
+            <tr>
+              <td class="w-50">Occupational Address</td>
+              <td class="w-50">{{ data.occupationalAddress }}</td>
+            </tr>
+          </tbody> -->
+        </table>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar><i class="fas fa-fw fa-user-friends"></i></div>
+    <mat-card-title>
+      Guardian Deatils
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="row">
+      <div class="col-md-3 col-lg-3 text-center"><i class="fas fa-user-circle" style="font-size:9em; color:gray;"></i></div>
+
+      <div class=" col-md-9 col-lg-9 ">
+        <table class="table">
+          <tbody>
+            <tr>
+              <td class="w-50">Guardian Name</td>
+              <td class="w-50">{{ data.nameOfTheGuardian }}</td>
+            </tr>
+            <tr>
+              <td class="w-50">Guardian Mobile</td>
+              <td class="w-50">{{ data.guardianMobile }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

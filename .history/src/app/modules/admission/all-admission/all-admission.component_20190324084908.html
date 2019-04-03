@@ -1,0 +1,50 @@
+<mat-card class="mb-4">
+  <mat-card-header>
+    <div mat-card-avatar><i class="fas fa-fw fa-user-graduate"></i></div>
+    <div class="row w-100">
+      <mat-card-title class="col-md-6">
+        Admission Form
+      </mat-card-title>
+      <!-- <mat-card-title class="col-md-6 text-right float-right">
+        <h5 class="pt-2">2018 - 2019 | Public School Of Excelance</h5>
+      </mat-card-title> -->
+    </div>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="searchAdmissionForm">
+      <div class="row">
+        <div class="col">
+          <mat-form-field>
+            <mat-select formControlName="acedamicyear" placeholder="Acedamic Year" required>
+              <mat-option>None</mat-option>
+              <mat-option *ngFor="let ac_year of acedamic_year" [value]="ac_year.value">
+                {{ac_year.viewValue}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="searchAdmissionForm.get('acedamicyear').invalid">This field is required</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field>
+            <mat-select formControlName="standard" placeholder="Standard" required>
+              <mat-option>None</mat-option>
+              <mat-option *ngFor="let standard of standardList" [value]="standard.value">
+                {{standard.viewValue}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="searchAdmissionForm.get('standard').invalid">This field is required</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field>
+            <input matInput formControlName="branch" placeholder="Application No" required>
+            <mat-error *ngIf="searchAdmissionForm.get('branch').invalid">This field is required</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <button mat-raised-button color="primary" class="mr-2" (click)="getAdmissionByYearStd(searchAdmissionForm.value);">Search</button>
+        </div>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,139 @@
+<nav class="sidebar" [ngClass]="{sidebarPushRight: isActive, collapsed: collapsed}">
+    <div class="list-group">
+        <a class="list-group-item" (click)="toggleMenuCollapsed('Dashboard')" matRipple>
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Dashboard</span>
+        </a>
+        <div class="collapse-menu" [collapse]="showMenu !== 'Dashboard'">
+            <a [routerLink]="['/admin']" [routerLinkActive]="['router-link-active']" class="list-group-item" matRipple>
+                <i class="fas fa-fw fa-arrow-right"></i>
+                <span>Admin</span>
+            </a>
+            <a [routerLink]="['/teachers']" [routerLinkActive]="['router-link-active']" class="list-group-item" matRipple>
+                <i class="fas fa-fw fa-arrow-right"></i>
+                <span>Teachers</span>
+            </a>
+            <!-- <a [routerLink]="['/students']" [routerLinkActive]="['router-link-active']" class="list-group-item" matRipple>
+                <i class="fas fa-fw fa-arrow-right"></i>
+                <span>Students</span>
+            </a> -->
+        </div>
+        <a [routerLink]="['.']" class="list-group-item" matRipple>
+            <i class="fas fa-fw fa-hotel"></i>
+            <span>Admission Form</span>
+        </a>
+        <a class="list-group-item" (click)="toggleMenuCollapsed('Teachers')" matRipple>
+            <i class="fas fa-fw fa-chalkboard-teacher"></i>
+            <span>Teachers</span>
+        </a>
+        <div class="collapse-menu" [collapse]="showMenu !== 'Teachers'">
+            <a [routerLink]="['/teachers/all-teachers']" [routerLinkActive]="['router-link-active']" class="list-group-item" matRipple>
+                <i class="fas fa-fw fa-arrow-right"></i>
+                <span>All Teahers</span>
+            </a>
+            <a [routerLink]="['/teachers/add-teacher']" [routerLinkActive]="['router-link-active']" class="list-group-item" matRipple>
+                <i class="fas fa-fw fa-arrow-right"></i>
+                <span>Add Teacher</span>
+            </a>
+        </div>
+        <a class="list-group-item" (click)="toggleMenuCollapsed('Students')" matRipple>
+            <i class="fas fa-fw fa-user-graduate"></i>
+            <span>Students</span>
+        </a>
+        <div class="collapse-menu" [collapse]="showMenu !== 'Students'">
+            <a [routerLink]="['/students/all-students']" [routerLinkActive]="['router-link-active']" class="list-group-item" matRipple>
+                <i class="fas fa-fw fa-arrow-right"></i>
+                <span>Student Detail</span>
+            </a>
+            <!-- <a [routerLink]="['/students/add-student']" [routerLinkActive]="['router-link-active']" class="list-group-item" matRipple>
+                <i class="fas fa-fw fa-arrow-right"></i>
+                <span>Add Student</span>
+            </a> -->
+            <a [routerLink]="['/students/promotion']" [routerLinkActive]="['router-link-active']" class="list-group-item" matRipple>
+                <i class="fas fa-fw fa-arrow-right"></i>
+                <span>Promotion</span>
+            </a>
+        </div>
+        <a [routerLink]="['.']" class="list-group-item" matRipple>
+            <i class="fas fa-fw fa-book-reader"></i>
+            <span>Library</span>
+        </a>
+        <a class="list-group-item" (click)="toggleMenuCollapsed('Accounts')" matRipple>
+            <i class="fas fa-fw fa-money-check-alt"></i>
+            <span>Accounts</span>
+        </a>
+        <div class="collapse-menu" [collapse]="showMenu !== 'Accounts'">
+            <a [routerLink]="['/accounts/fee-collection']" [routerLinkActive]="['router-link-active']" class="list-group-item" matRipple>
+                <i class="fas fa-fw fa-arrow-right"></i>
+                <span>Fee Collection</span>
+            </a>
+            <a [routerLink]="['/accounts/expense']" [routerLinkActive]="['router-link-active']" class="list-group-item" matRipple>
+                <i class="fas fa-fw fa-arrow-right"></i>
+                <span>Expense</span>
+            </a>
+            <a [routerLink]="['/accounts/add-expense']" [routerLinkActive]="['router-link-active']" class="list-group-item" matRipple>
+                <i class="fas fa-fw fa-arrow-right"></i>
+                <span>Add Expense</span>
+            </a>
+            <a [routerLink]="['/accounts/fee-regulation']" [routerLinkActive]="['router-link-active']" class="list-group-item" matRipple>
+                <i class="fas fa-fw fa-arrow-right"></i>
+                <span>Fee Regulation</span>
+            </a>
+            <a [routerLink]="['/accounts/student-fee-regulation']" [routerLinkActive]="['router-link-active']" class="list-group-item" matRipple>
+                <i class="fas fa-fw fa-arrow-right"></i>
+                <span>Student Fee Regulation</span>
+            </a>
+        </div>
+        <a [routerLink]="['.']" class="list-group-item" matRipple>
+            <i class="fas fa-fw fa-book"></i>
+            <span>Subject</span>
+        </a>
+        <a class="list-group-item" (click)="toggleMenuCollapsed('Attendance')" matRipple>
+            <i class="fas fa-fw fa-sign-in-alt"></i>
+            <span>Attendance</span>
+        </a>
+        <div class="collapse-menu" [collapse]="showMenu !== 'Attendance'">
+            <a [routerLink]="['/attendance/students-manual-entry']" [routerLinkActive]="['router-link-active']" class="list-group-item" matRipple>
+                <i class="fas fa-fw fa-arrow-right"></i>
+                <span>Students Manual Entry</span>
+            </a>
+            <a [routerLink]="['/attendance/students-attendance']" [routerLinkActive]="['router-link-active']" class="list-group-item" matRipple>
+                <i class="fas fa-fw fa-arrow-right"></i>
+                <span>Students Attendance</span>
+            </a>
+            <a [routerLink]="['/attendance/staff-manual-entry']" [routerLinkActive]="['router-link-active']" class="list-group-item" matRipple>
+                <i class="fas fa-fw fa-arrow-right"></i>
+                <span>Staff Manual Entry</span>
+            </a>
+            <a [routerLink]="['/attendance/staff-attendance']" [routerLinkActive]="['router-link-active']" class="list-group-item" matRipple>
+                <i class="fas fa-fw fa-arrow-right"></i>
+                <span>Staff Attendance</span>
+            </a>
+        </div>
+        <a [routerLink]="['.']" class="list-group-item" matRipple>
+            <i class="fas fa-fw fa-vial"></i>
+            <span>Exams</span>
+        </a>
+        <a [routerLink]="['.']" class="list-group-item" matRipple>
+            <i class="fas fa-fw fa-shuttle-van"></i>
+            <span>Transport</span>
+        </a>
+        <a [routerLink]="['.']" class="list-group-item" matRipple>
+            <i class="fas fa-fw fa-hotel"></i>
+            <span>Hostel</span>
+        </a>
+        <a [routerLink]="['.']" class="list-group-item" matRipple>
+            <i class="fas fa-fw fa-flag"></i>
+            <span>Notice</span>
+        </a>
+        <a [routerLink]="['.']" class="list-group-item" matRipple>
+            <i class="fas fa-fw fa-comment"></i>
+            <span>Message</span>
+        </a>
+    </div>
+
+    <div class="toggle-button" [ngClass]="{collapsed: collapsed}" (click)="toggleCollapsed()" matRipple>
+        <i class="fa fa-fw fa-angle-double-left"></i>
+        <span>Hide Sidebar</span>
+    </div>
+</nav>

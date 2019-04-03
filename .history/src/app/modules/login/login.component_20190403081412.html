@@ -1,0 +1,50 @@
+<app-header></app-header>
+<section class="main-container row align-items-center m-0">
+  <div class="container-fluid d-flex justify-content-center">
+    <router-outlet></router-outlet>
+    <mat-card class="col col-md-4">
+      <div class="login-page">
+        <div class="row justify-content-md-center">
+          <div class="col">
+            <div class="text-center">
+                <img class="img-fluid user-avatar" src="../../../assets/images/logo.png" />
+            </div>
+            <!-- <h1>Login</h1> -->
+            <form [formGroup]="loginForm">
+              <div class="form-content">
+                <div class="form-group">
+                  <mat-form-field>
+                    <input formControlName="username" matInput type="text" placeholder="Username"  required>
+                    <mat-error *ngIf="loginForm.get('username').invalid">This field is required</mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field>
+                    <input formControlName="password" matInput type="password" placeholder="Password"  required>
+                    <mat-error *ngIf="loginForm.get('password').invalid">This field is required</mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field>
+                    <mat-select formControlName="branch" placeholder="Branch" required>
+                      <mat-option>None</mat-option>
+                      <mat-option *ngFor="let branch of branchs" [value]="branch.value">
+                        {{branch.viewValue}}
+                      </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="loginForm.get('branch').invalid">This field is required</mat-error>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row pl-3 pr-3 text-center align-items-center">
+                  <button mat-raised-button color="primary" (click)="onLoggedin()" class="col col-3">Log in</button>
+                  <a class="col col-9 text-left" routerLink=".">Forgot Password?</a>
+              </div>
+              
+            </form>
+          </div>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</section>
+<p-toast [style]="{marginTop: '80px'}"></p-toast>
+<app-footer></app-footer>

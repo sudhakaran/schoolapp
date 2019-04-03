@@ -1,0 +1,75 @@
+<nav class="navbar navbar-expand-lg fixed-top">
+  <a class="navbar-brand" routerLink="/">
+      <i class="material-icons">school</i> School App
+  </a>
+  <button class="navbar-toggler" type="button" (click)="toggleSidebar()">
+    <span class="navbar-toggler-icon"></span>
+    <i class="fa fa-bars text-muted" aria-hidden="true"></i>
+  </button>
+  <div class="collapse navbar-collapse">
+    <!-- <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="{{ 'Search' }}">
+    </form> -->
+    <ul class="navbar-nav ml-auto">
+      <!-- <li class="nav-item dropdown" dropdown>
+        <a class="nav-link dropdown-toggle" href="javascript:void(0)" dropdownToggle>
+            <i class="fa fa-envelope"></i> <b class="caret"></b><span class="sr-only">(current)</span>
+        </a>
+        <ul class="dropdown-menu-right messages dropdown-menu" *dropdownMenu>
+          <li class="media">
+            <div class="media-body">
+              <h5 class="mt-0 mb-1">Raajkamal</h5>
+              <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+              <p class="last"> Lorem ipsum dolor sit amet, consectetur...</p>
+            </div>
+          </li>
+          <li class="media">
+            <div class="media-body">
+              <h5 class="mt-0 mb-1">Raajkamal</h5>
+              <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+              <p class="last"> Lorem ipsum dolor sit amet, consectetur...</p>
+            </div>
+          </li>
+          <li class="media">
+            <div class="media-body">
+              <h5 class="mt-0 mb-1">Raajkamal</h5>
+              <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+              <p class="last"> Lorem ipsum dolor sit amet, consectetur...</p>
+            </div>
+          </li>
+        </ul>
+      </li> -->
+      <!-- <li class="nav-item dropdown" dropdown>
+        <a href="javascript:void(0)" class="nav-link dropdown-toggle" dropdownToggle>
+            <i class="fa fa-bell"></i> <b class="caret"></b><span class="sr-only">(current)</span>
+        </a>
+        <div class="dropdown-menu-right dropdown-menu" *dropdownMenu>
+              <a href="javascript:void(0)" class="dropdown-item">
+                {{ 'Pending Task' }} <span class="badge badge-info">6</span>
+              </a>
+              <a href="javascript:void(0)" class="dropdown-item">
+                {{ 'In queue' }} <span class="badge badge-info"> 13</span>
+              </a>
+              <a href="javascript:void(0)" class="dropdown-item">
+                {{ 'Mail' }} <span class="badge badge-info"> 45</span>
+              </a>
+            <li class="dropdown-divider"></li>
+            <a href="javascript:void(0)" class="dropdown-item">
+              {{ 'View All' }}
+            </a>
+        </div>
+      </li> -->
+
+  <li class="nav-item dropdown" dropdown>
+    <a href="javascript:void(0)" class="nav-link dropdown-toggle" dropdownToggle>
+      <i class="fa fa-user"></i> {{currentUser}} <b class="caret"></b>
+    </a>
+    <div class="dropdown-menu-right dropdown-menu" *dropdownMenu>
+      <a class="dropdown-item" (click)="onLoggedout()">
+        <i class="fa fa-fw fa-power-off"></i> {{ 'Log Out' }}
+      </a>
+    </div>
+  </li>
+  </ul>
+  </div>
+</nav>
