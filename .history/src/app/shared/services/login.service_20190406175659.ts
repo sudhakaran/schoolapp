@@ -14,8 +14,7 @@ import { Router } from '@angular/router';
   private _baseApiUrl: string;
 
   constructor(private http: HttpClient, private _router: Router, @Inject('BASE_APP_API_URL') baseApiUrl: string) {
-    localStorage.getItem('currentUserToken') === null ? localStorage.setItem('currentUserToken', '')  :  '' ;
-    this.currentUserSubject = new BehaviorSubject<any>(localStorage.getItem('currentUserToken'));
+    this.currentUserSubject = new BehaviorSubject<any>(JSON.parse(localStorage.getItem('currentUserToken')));
     this.currentUser = this.currentUserSubject.asObservable();
     this._baseApiUrl = baseApiUrl;
   }
@@ -48,7 +47,7 @@ import { Router } from '@angular/router';
     return this.http.post(url, RequestModel, options)
       .pipe(
         map(userToken => {
-          localStorage.setItem('currentUserToken', userToken['JWT_TOKEN']);
+          localStorage.setItem('currentUserToken', JSON.stringify(userToken['JWT_TOKEN']));
           this.currentUserSubject.next(userToken);
           return userToken;
         }),
